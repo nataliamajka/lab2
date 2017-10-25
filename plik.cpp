@@ -19,6 +19,7 @@ for( int i = 1; i < 10; i++ )
     if( tab[ i ] < najmniejszy )
          najmniejszy = tab[ i ]; 
     
+    
 }
    cout<<najwiekszy<<endl;
    cout<<najmniejszy<<endl;
