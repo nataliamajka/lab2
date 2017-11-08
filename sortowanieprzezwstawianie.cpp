@@ -23,7 +23,7 @@ void sortowanieprzezwstawianie(int n, int *tab)
 int main()
 {
     int n, *tab;
-    cout<<"Podaj wielkość zbioru: ";
+    cout<<"Podaj wielkosc zbioru: ";
     cin>>n;
  
     tab = new int [n];
@@ -40,7 +40,7 @@ int main()
  
     sortowanieprzezwstawianie(n, tab);
  
-    cout <<"Elementy posortowaniem" <<endl;
+    cout <<"Elementy posortowane: " <<endl;
     for(int i=0; i<n; i++)
             cout<<tab[i]<<" ";
  
