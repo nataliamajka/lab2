@@ -1,0 +1,70 @@
+Rozpakuj katalog archiwum.tar.gz
+tar -xvf archiwum.tar.gz
+
+Sprawdź sumę kontrolną pliku genom.txt
+9b1ac2466cfdbe6ab53cfe817753758e  genom.txt
+
+=======================================
+Zadanie 1
+=======================================
+1. Plik zawiera współrzędne ludzkiego genomu w transkrypcji RefSeq. Kolejne kolumny oznaczają
+chrom	strand	txStart	txEnd	cdsStart	cdsEnd	exonCount	exonStarts	exonEnds	proteinID	alignID
+	
+4. - Spójrz na plik  
+	-Ile jest pól? 16
+	-Ile to jestlinii? 47306  wc -l genom.txt 
+
+	
+5 - W jaki sposób są rozdzielone pola? Tabulatorem
+
+
+6 - Ile transkryptów (NM_ *) jest reprezentowanych w pliku?  36064
+uniq $2 genom.txt > file.new
+grep -c "NM_" file.new
+36064
+
+
+7 -Ile genów jest reprezentowanych w pliku? cat genom.txt | awk '{print $2}' | awk '!x[$0]++' > file.new
+grep -c "NM_" file.new
+35343
+
+
+8 - Czy jakiekolwiek transkrypty są reprezentowane więcej niż jeden raz?   
+    Jeśli tak, które [Umieść listę w pliku "mult_transcripts.txt"]?
+
+
+9  -Ile chromosomów jest reprezentowanych? 17
+cat genom.txt | awk '{print $3}' | awk '!x[$0]++' > file.new
+wc -l file.new
+
+10 - Jakie geny znajdują się na chromosomie Y? Umieść je w pliku "chrY_genes.txt"
+	
+
+11 -Utwórz osobne pliki dla genów "+" i "-", o nazwach "genom_plus.txt" i "genom_neg.txt"
+
+
+12- Posortuj wszystkie dane w genom_plus.txt, najpierw przez chromosom (rosnąco), a następnie przez pierwszą współrzędną (malejąco).
+
+
+13- Podziel równomiernie wszystkie dane na 4 pliki o nazwach "Part_1.txt", "Part_2.txt" itd. Użyj komendy split.
+
+14- Jakie 5 genów pojawia się na "prawym końcu" (np. Mają najwyższe współrzędne) chr 19?
+
+
+15- W oparciu o pole z genami, jaki jest najdłuższy chromosom? Jaka jest jego długość?
+
+
+16- Jakie geny zawierają litery "BMP"? Umieść je w pliku "BMPs_etc.txt"
+	
+
+17- Które z tych "genów BMP" mają więcej niż jeden transkrypt?
+
+
+18- Jaki gen ma najdłuższą długość genomu (odległość między początkiem i końcem transkrypcji)? Najkrótszy?
+	
+
+
+19- Zmień format pliku, tak aby zawierał dwa pola:  RefSeq<tab>chr:start-end
+	ex: NM_001039886	chr19:57722720-57751115
+
+
